@@ -2,12 +2,13 @@ import os
 from os.path import exists
 import requests
 
+YEAR = 2022
 
-YEAR = 2021
-SESSION = os.environ["AOC_SESSION"]
-COOKIE = dict(session = SESSION)
+with open("SESSION") as file:
+	COOKIE = dict(session = file.readline())
 
 def get_input(x: int):
+	# wrt the main directory
 	file_path = f"..\\input\\{x}.txt"
 
 	if not exists(file_path): 
